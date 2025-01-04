@@ -1,12 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmr6ddphgkjjt"]
 
 [ext_resource type="Shader" path="res://skybox.gdshader" id="1_dniq4"]
-[ext_resource type="Script" path="res://rect_resize.gd" id="2_nobgv"]
 [ext_resource type="PackedScene" uid="uid://4mb54fpv4ifu" path="res://ball.tscn" id="3_p3cnr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akt0v"]
 shader = ExtResource("1_dniq4")
 shader_parameter/bg_color = null
+
+[sub_resource type="GDScript" id="GDScript_n1e7p"]
+script/source = "extends ColorRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -15,13 +28,14 @@ anchors_preset = 0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 326)
 
+[node name="Node2D" parent="." instance=ExtResource("3_p3cnr")]
+position = Vector2(578, 420)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_akt0v")
 offset_right = 1160.0
 offset_bottom = 673.0
-script = ExtResource("2_nobgv")
-
-[node name="Node2D" parent="CanvasLayer" instance=ExtResource("3_p3cnr")]
-position = Vector2(578, 420)
+script = SubResource("GDScript_n1e7p")
