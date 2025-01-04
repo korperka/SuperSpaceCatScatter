@@ -7,7 +7,9 @@
 shader = ExtResource("1_dniq4")
 shader_parameter/bg_color = null
 
-[sub_resource type="GDScript" id="GDScript_n1e7p"]
+
+[sub_resource type="GDScript" id="GDScript_bb7mo"]
+
 script/source = "extends ColorRect
 
 
@@ -38,4 +40,9 @@ visible = false
 material = SubResource("ShaderMaterial_akt0v")
 offset_right = 1160.0
 offset_bottom = 673.0
-script = SubResource("GDScript_n1e7p")
+
+script = SubResource("GDScript_bb7mo")
+
+[node name="Node2D" parent="CanvasLayer" instance=ExtResource("3_p3cnr")]
+position = Vector2(578, 420)
+
