@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://djdu705cnup2s" path="res://ball-sheet.png" id="1_klb7u"]
 [ext_resource type="Script" path="res://throw.gd" id="1_ufft1"]
+[ext_resource type="Script" path="res://anim.gd" id="2_fr7m5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwhha"]
 atlas = ExtResource("1_klb7u")
@@ -361,21 +362,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_vlm4r"]
-script/source = "extends AnimatedSprite2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#play(\"default\")
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_an86d"]
 radius = 40.0125
 
@@ -390,10 +376,9 @@ script = ExtResource("1_ufft1")
 position = Vector2(-0.999992, -0.999996)
 scale = Vector2(1.26562, 1.26562)
 sprite_frames = SubResource("SpriteFrames_v0ony")
-autoplay = "default"
 frame_progress = 0.171952
 speed_scale = 3.0
-script = SubResource("GDScript_vlm4r")
+script = ExtResource("2_fr7m5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, 1)
