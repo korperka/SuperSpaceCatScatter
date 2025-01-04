@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmr6ddphgkjjt"]
+
+[ext_resource type="Shader" path="res://skybox.gdshader" id="1_dniq4"]
+[ext_resource type="Script" path="res://control.gd" id="1_lv51u"]
+[ext_resource type="Script" path="res://rect_resize.gd" id="2_nobgv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akt0v"]
+shader = ExtResource("1_dniq4")
+shader_parameter/bg_color = null
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lv51u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 326)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_akt0v")
+offset_right = 1158.0
+offset_bottom = 662.0
+script = ExtResource("2_nobgv")
