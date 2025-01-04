@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpa7yn1oplgbu"]
+
+[ext_resource type="FontFile" uid="uid://c30lu67gk40h" path="res://fonts/Blox2.ttf" id="1_0qj6b"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_qyo52"]
+[ext_resource type="Texture2D" uid="uid://cbhvs0rr121wq" path="res://assets/Play_Idle.png" id="2_6qj3m"]
+[ext_resource type="Shader" path="res://skybox.gdshader" id="2_n3u4s"]
+[ext_resource type="FontFile" uid="uid://3rl1cwou13f2" path="res://fonts/Karma Future.otf" id="5_rofkc"]
+
+[sub_resource type="Theme" id="Theme_tsh13"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3uqk"]
+shader = ExtResource("2_n3u4s")
+shader_parameter/bg_color = null
+
+[sub_resource type="GDScript" id="GDScript_n1e7p"]
+script/source = "extends ColorRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_gjc2e"]
+font = ExtResource("1_0qj6b")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_1mjb7"]
+line_spacing = 32.0
+font = ExtResource("5_rofkc")
+font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_tsh13")
+script = ExtResource("1_qyo52")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_c3uqk")
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 673.0
+script = SubResource("GDScript_n1e7p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Super Space 
+Cat Scatter"
+label_settings = SubResource("LabelSettings_gjc2e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "start game"
+label_settings = SubResource("LabelSettings_1mjb7")
+
+[node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_6qj3m")
+flat = true
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/start_button" to="." method="_on_start_button_button_down"]
