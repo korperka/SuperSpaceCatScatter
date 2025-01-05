@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmr6ddphgkjjt"]
+[gd_scene load_steps=6 format=3 uid="uid://bmr6ddphgkjjt"]
 
 [ext_resource type="Shader" path="res://skybox.gdshader" id="1_dniq4"]
+[ext_resource type="PackedScene" uid="uid://bf06mxdl0gek6" path="res://blackhole.tscn" id="3_k6p87"]
 [ext_resource type="PackedScene" uid="uid://4mb54fpv4ifu" path="res://ball.tscn" id="3_p3cnr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akt0v"]
 shader = ExtResource("1_dniq4")
 shader_parameter/bg_color = null
 
-
 [sub_resource type="GDScript" id="GDScript_bb7mo"]
-
 script/source = "extends ColorRect
 
 
@@ -23,26 +22,34 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="Node2D" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 326)
 
-[node name="Node2D" parent="." instance=ExtResource("3_p3cnr")]
-position = Vector2(578, 420)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_akt0v")
-offset_right = 1160.0
-offset_bottom = 673.0
-
+offset_left = -64.0
+offset_top = -53.0
+offset_right = 1232.0
+offset_bottom = 692.0
 script = SubResource("GDScript_bb7mo")
+metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" parent="CanvasLayer" instance=ExtResource("3_p3cnr")]
-position = Vector2(578, 420)
+[node name="Node2D2" parent="." instance=ExtResource("3_p3cnr")]
+position = Vector2(582, 530)
 
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Node2D3" parent="." instance=ExtResource("3_k6p87")]
+position = Vector2(377, 338)
+rotation = 1.31598
+scale = Vector2(0.66, 0.66)
+
+[node name="Node2D4" parent="." instance=ExtResource("3_k6p87")]
+position = Vector2(815, 257)
+scale = Vector2(0.55, 0.55)

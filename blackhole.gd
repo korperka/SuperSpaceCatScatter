@@ -21,3 +21,4 @@ func _process(delta: float) -> void:
 				
 			else:
 				get_tree().reload_current_scene()
+				
