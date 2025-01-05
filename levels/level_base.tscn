@@ -133,7 +133,7 @@ func _process(delta: float) -> void:
 
 func spawn_shockwave(position: Vector2):
 	visible = true
-	var local_position = get_canvas_transform().affine_inverse().basis_xform(global_position)
+	var local_position = get_canvas_transform().affine_inverse().basis_xform(position - global_position)
 	var normalized_position = local_position / size
 	self.material.set_shader_parameter(\"center\", normalized_position)
 	update_radius = true

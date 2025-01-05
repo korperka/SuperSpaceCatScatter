@@ -22,5 +22,5 @@ func _process(delta: float) -> void:
 				body.apply_force(force)
 				
 			else:
-				Globals.ShockWave.emit(position)
+				Globals.ShockWave.emit(global_position)
 				Globals.TriggerLose.emit()

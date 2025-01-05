@@ -93,4 +93,3 @@ func _reset_position():
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
 	is_launched = false
-
