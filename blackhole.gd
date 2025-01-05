@@ -3,11 +3,22 @@ extends Area2D
 # Константы
 const MAGNET_FORCE: float = 10
 var stop_distance := 50
+var update_radius = false
+var radius = 0
+var shader: ShaderMaterial = null
+var rect: ColorRect = null
+#var shader_material := preload("res://shockwave.gdshader")
 
 func _ready() -> void:
-	stop_distance = $CollisionShape2D.shape.radius / 5
+	rect = get_parent().get_parent().get_parent().get_node("ColorRect")
+	shader = rect.material
+	stop_distance = $CollisionShape2D.shape.radius / 6
 
 func _process(delta: float) -> void:
+	if update_radius:
+		radius += delta
+		update_shockwave()
+	
 	for body in get_overlapping_bodies():
 		if body is RigidBody2D:
 			# Вычисляем направление от тела к центру
@@ -20,5 +31,22 @@ func _process(delta: float) -> void:
 				body.apply_force(force)
 				
 			else:
-				get_tree().reload_current_scene()
+				var timer = Timer.new()
+				add_child(timer)
+				timer.wait_time = 1
+				timer.connect("timeout", timeout)
+				timer.start()
+				body.queue_free()
+				spawn_shockwave(position)
 				
+func timeout() -> void:
+	get_tree().reload_current_scene()
+
+func spawn_shockwave(position: Vector2):
+	var local_position = rect.get_canvas_transform().affine_inverse().basis_xform(global_position - rect.global_position)
+	var normalized_position = local_position / rect.size
+	shader.set_shader_parameter("center", normalized_position)
+	update_radius = true
+	
+func update_shockwave() -> void:
+	shader.set_shader_parameter("radius", radius)
