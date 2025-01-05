@@ -85,7 +85,7 @@ func _apply_force(force: Vector2):
 
 func _check_bounds():
 	if not screen_bounds.has_point(global_position):
-		get_tree().reload_current_scene()
+		Globals.TriggerLose.emit()
 
 func _reset_position():
 	# Возвращаем объект на начальную позицию

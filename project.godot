@@ -13,7 +13,12 @@ config_version=5
 config/name="SuperSpaceCatScatter"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://blackhole.png"
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://sys/Globals.gd"
 
 [display]
 

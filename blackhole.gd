@@ -20,5 +20,5 @@ func _process(delta: float) -> void:
 				body.apply_force(force)
 				
 			else:
-				get_tree().reload_current_scene()
+				Globals.TriggerLose.emit()
 				
