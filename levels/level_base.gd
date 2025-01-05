@@ -11,6 +11,12 @@ func _ready() -> void:
 		
 	Globals.TriggerLose.connect(_on_recive_lose)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("rest"):
+		_on_recive_lose()
+	elif Input.is_action_just_pressed("men"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
 func _exit_tree() -> void:
 	Globals.TriggerLose.disconnect(_on_recive_lose)
 

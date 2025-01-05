@@ -35,7 +35,7 @@ font = ExtResource("4_ro764")
 font_size = 32
 
 [sub_resource type="GDScript" id="GDScript_nd574"]
-script/source = "extends Button
+script/source = "extends TextureButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -110,3 +110,5 @@ layout_mode = 2
 texture_normal = ExtResource("5_hl73c")
 texture_pressed = ExtResource("4_qyrkq")
 script = SubResource("GDScript_nd574")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/start_button" to="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/start_button" method="_on_pressed"]

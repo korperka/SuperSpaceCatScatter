@@ -13,6 +13,3 @@ position = Vector2(1048, 241)
 [node name="BlackHole" parent="holes" index="0" instance=ExtResource("2_aut5n")]
 position = Vector2(826, 118)
 rotation = -0.0436332
-
-[node name="fg_shadow" parent="." index="6"]
-visible = true

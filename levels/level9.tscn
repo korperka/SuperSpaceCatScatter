@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://da7be57n0t184"]
+
+[ext_resource type="PackedScene" uid="uid://b3bpcupnexo8b" path="res://levels/level_base.tscn" id="1_0kwcs"]
+[ext_resource type="PackedScene" uid="uid://dsl0jh1aw2xia" path="res://levels/level10.tscn" id="2_tg132"]
+[ext_resource type="PackedScene" uid="uid://bgybh001myicv" path="res://Kegla.tscn" id="2_uqy5g"]
+
+[node name="Level" instance=ExtResource("1_0kwcs")]
+next_level = ExtResource("2_tg132")
+
+[node name="Kegla2" parent="keglas" index="0"]
+position = Vector2(687, 348)
+
+[node name="Kegla3" parent="keglas" index="1" instance=ExtResource("2_uqy5g")]
+position = Vector2(552, 118)
+
+[node name="Kegla4" parent="keglas" index="2" instance=ExtResource("2_uqy5g")]
+position = Vector2(556, 345)
+
+[node name="Kegla5" parent="keglas" index="3" instance=ExtResource("2_uqy5g")]
+position = Vector2(460, 243)
+
+[node name="Kegla6" parent="keglas" index="4" instance=ExtResource("2_uqy5g")]
+position = Vector2(694, 113)
+
+[node name="Kegla7" parent="keglas" index="5" instance=ExtResource("2_uqy5g")]
+position = Vector2(617, 228)
+
+[node name="Kegla8" parent="keglas" index="6" instance=ExtResource("2_uqy5g")]
+position = Vector2(778, 234)

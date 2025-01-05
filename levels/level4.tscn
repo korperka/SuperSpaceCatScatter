@@ -12,6 +12,3 @@ position = Vector2(632, 226)
 
 [node name="Kegla3" parent="keglas" index="1" instance=ExtResource("2_vkih6")]
 position = Vector2(552, 224)
-
-[node name="fg_shadow" parent="." index="6"]
-visible = true

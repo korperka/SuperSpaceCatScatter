@@ -5,6 +5,3 @@
 
 [node name="Level" instance=ExtResource("1_lvugl")]
 next_level = ExtResource("2_nhjqt")
-
-[node name="fg_shadow" parent="." index="6"]
-visible = true

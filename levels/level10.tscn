@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsl0jh1aw2xia"]
+
+[ext_resource type="PackedScene" uid="uid://b3bpcupnexo8b" path="res://levels/level_base.tscn" id="1_qodl7"]
+[ext_resource type="PackedScene" uid="uid://bf06mxdl0gek6" path="res://blackhole.tscn" id="2_1h5mx"]
+[ext_resource type="PackedScene" uid="uid://bo6h2ys4jleyq" path="res://scenes/menu_wiiin.tscn" id="2_s6rdv"]
+[ext_resource type="PackedScene" uid="uid://dcjlkxhy48lju" path="res://whitehole.tscn" id="3_1jmmt"]
+
+[node name="Level" instance=ExtResource("1_qodl7")]
+next_level = ExtResource("2_s6rdv")
+
+[node name="Kegla2" parent="keglas" index="0"]
+position = Vector2(489, 217)
+
+[node name="BlackHole2" parent="holes" index="0" instance=ExtResource("2_1h5mx")]
+position = Vector2(180, 456)
+
+[node name="BlackHole" parent="holes" index="1" instance=ExtResource("2_1h5mx")]
+position = Vector2(949, 318)
+
+[node name="BlackHole3" parent="holes" index="2" instance=ExtResource("2_1h5mx")]
+position = Vector2(396, 64)
+
+[node name="WhiteHole" parent="holes" index="3" instance=ExtResource("3_1jmmt")]
+position = Vector2(129, 161)
+
+[node name="WhiteHole2" parent="holes" index="4" instance=ExtResource("3_1jmmt")]
+position = Vector2(803, 106)

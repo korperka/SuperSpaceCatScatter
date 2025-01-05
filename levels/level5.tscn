@@ -21,6 +21,3 @@ position = Vector2(651, 137)
 position = Vector2(595, 290)
 rotation = 1.40499
 scale = Vector2(0.84, 0.84)
-
-[node name="fg_shadow" parent="." index="6"]
-visible = true

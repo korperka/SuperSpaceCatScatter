@@ -202,7 +202,6 @@ color = Color(1, 0.831373, 0.866667, 0)
 script = SubResource("GDScript_bg0wr")
 
 [node name="fg_shadow" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

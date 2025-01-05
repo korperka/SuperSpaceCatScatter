@@ -23,6 +23,3 @@ position = Vector2(161, 307)
 [node name="BlackHole" parent="holes" index="0" instance=ExtResource("3_i7ij7")]
 position = Vector2(322, 279)
 scale = Vector2(0.815, 0.815)
-
-[node name="fg_shadow" parent="." index="6"]
-visible = true
