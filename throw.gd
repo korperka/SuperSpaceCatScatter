@@ -18,7 +18,7 @@ func _ready():
 	spawn_position = global_position
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
-	screen_bounds = Rect2(Vector2.ZERO, get_viewport().get_visible_rect().size)
+	screen_bounds = Rect2(Vector2(-100, -100), get_viewport().get_visible_rect().size + Vector2(100, 100))
 	
 	# Создаём точки траектории
 	_create_trajectory()
@@ -79,7 +79,7 @@ func _update_trajectory(pull_vector: Vector2):
 		trajectory_dots[i].position = pull_vector * step * -2.5
 
 func _apply_force(force: Vector2):
-	# Применяем силу для запуска объекта
+	freeze = false
 	linear_velocity = force
 	angular_velocity = 0.0
 

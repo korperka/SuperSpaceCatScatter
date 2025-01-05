@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://n7ylcs2vxckt"]
+
+[ext_resource type="PackedScene" uid="uid://b3bpcupnexo8b" path="res://levels/level_base.tscn" id="1_x71we"]
+[ext_resource type="PackedScene" uid="uid://bf06mxdl0gek6" path="res://blackhole.tscn" id="2_8do6h"]
+[ext_resource type="PackedScene" uid="uid://bc1w5jmkm6dh2" path="res://levels/level4.tscn" id="2_rrulk"]
+
+[node name="Level" instance=ExtResource("1_x71we")]
+next_level = ExtResource("2_rrulk")
+
+[node name="planeta" parent="." index="2"]
+position = Vector2(592, 534)
+
+[node name="Kegla2" parent="keglas" index="0"]
+position = Vector2(793.12, 80.021)
+
+[node name="BlackHole" parent="holes" index="0" instance=ExtResource("2_8do6h")]
+position = Vector2(498, 126)
+
+[node name="BlackHole2" parent="holes" index="1" instance=ExtResource("2_8do6h")]
+position = Vector2(961, 293)
+rotation = 1.45037
+
+[node name="fg_shadow" parent="." index="6"]
+visible = true

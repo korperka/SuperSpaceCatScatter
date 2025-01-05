@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx0bhjd788ctx"]
+
+[ext_resource type="PackedScene" uid="uid://b3bpcupnexo8b" path="res://levels/level_base.tscn" id="1_lvugl"]
+[ext_resource type="PackedScene" uid="uid://d1etc1s1ttyrc" path="res://levels/level2.tscn" id="2_nhjqt"]
+
+[node name="Level" instance=ExtResource("1_lvugl")]
+next_level = ExtResource("2_nhjqt")
+
+[node name="fg_shadow" parent="." index="6"]
+visible = true

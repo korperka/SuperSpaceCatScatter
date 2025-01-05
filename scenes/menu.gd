@@ -1,7 +1,7 @@
 extends Control
 
-@onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/start_button as Button
-@onready var start_level = preload("res://main.tscn")
+@onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/start_button as TextureButton
+@onready var start_level = preload("res://levels/level1.tscn")
 #@onready var start_level = preload()
 
 # Called when the node enters the scene tree for the first time.

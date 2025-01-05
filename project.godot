@@ -22,6 +22,7 @@ Globals="*res://sys/Globals.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 

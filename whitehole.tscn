@@ -403,7 +403,7 @@ shader_parameter/thickness = 0.004
 shader_parameter/frequency = 50.0
 shader_parameter/phase = 0.0
 
-[node name="Node2D" type="Node2D"]
+[node name="WhiteHole" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

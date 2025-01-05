@@ -1,7 +1,7 @@
 extends Area2D
 
 # Константы
-const MAGNET_FORCE: float = 15000
+@export var MAGNET_FORCE: float = 18000
 var stop_distance := 50
 var update_radius = false
 var radius = 0
@@ -24,3 +24,4 @@ func _process(delta: float) -> void:
 			else:
 				Globals.ShockWave.emit(global_position)
 				Globals.TriggerLose.emit()
+				body.queue_free()

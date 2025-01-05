@@ -1,16 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpa7yn1oplgbu"]
+[gd_scene load_steps=11 format=3 uid="uid://bo6h2ys4jleyq"]
 
-[ext_resource type="FontFile" uid="uid://c30lu67gk40h" path="res://fonts/Blox2.ttf" id="1_0qj6b"]
-[ext_resource type="Script" path="res://scenes/menu.gd" id="1_qyo52"]
-[ext_resource type="Texture2D" uid="uid://cbhvs0rr121wq" path="res://assets/Play_Idle.png" id="2_6qj3m"]
-[ext_resource type="Shader" path="res://skybox.gdshader" id="2_n3u4s"]
-[ext_resource type="FontFile" uid="uid://3rl1cwou13f2" path="res://fonts/Karma Future.otf" id="5_rofkc"]
-[ext_resource type="Texture2D" uid="uid://cyfvgf8og5qmq" path="res://assets/Play_Pushed.png" id="6_twggl"]
+[ext_resource type="Shader" path="res://skybox.gdshader" id="2_nldkw"]
+[ext_resource type="Texture2D" uid="uid://cyfvgf8og5qmq" path="res://assets/Play_Pushed.png" id="4_qyrkq"]
+[ext_resource type="FontFile" uid="uid://3rl1cwou13f2" path="res://fonts/Karma Future.otf" id="4_ro764"]
+[ext_resource type="Texture2D" uid="uid://cbhvs0rr121wq" path="res://assets/Play_Idle.png" id="5_hl73c"]
 
 [sub_resource type="Theme" id="Theme_tsh13"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c3uqk"]
-shader = ExtResource("2_n3u4s")
+shader = ExtResource("2_nldkw")
 shader_parameter/bg_color = null
 
 [sub_resource type="GDScript" id="GDScript_n1e7p"]
@@ -28,13 +26,32 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_gjc2e"]
-font = ExtResource("1_0qj6b")
+font = ExtResource("4_ro764")
 font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_1mjb7"]
 line_spacing = 32.0
-font = ExtResource("5_rofkc")
+font = ExtResource("4_ro764")
 font_size = 32
+
+[sub_resource type="GDScript" id="GDScript_nd574"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\")
+	pass # Replace with function body.
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -45,7 +62,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 theme = SubResource("Theme_tsh13")
-script = ExtResource("1_qyo52")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_c3uqk")
@@ -72,8 +88,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Super Space 
-Cat Scatter"
+text = "YOU WON"
 label_settings = SubResource("LabelSettings_gjc2e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
@@ -87,12 +102,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "start game"
+text = "MENU BLAYT"
 label_settings = SubResource("LabelSettings_1mjb7")
 
 [node name="start_button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_6qj3m")
-texture_pressed = ExtResource("6_twggl")
-
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/start_button" to="." method="_on_start_button_button_down"]
+texture_normal = ExtResource("5_hl73c")
+texture_pressed = ExtResource("4_qyrkq")
+script = SubResource("GDScript_nd574")
