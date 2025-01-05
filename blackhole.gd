@@ -1,7 +1,7 @@
 extends Area2D
 
 # Константы
-const MAGNET_FORCE: float = 10
+const MAGNET_FORCE: float = 10000
 var stop_distance := 50
 
 func _ready() -> void:

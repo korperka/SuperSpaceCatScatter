@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c375ampt5jr16"]
+
+[ext_resource type="Texture2D" uid="uid://ytpqvv3x5hui" path="res://icon.svg" id="1_qi3ii"]
+
+[sub_resource type="GDScript" id="GDScript_v5sui"]
+script/source = "extends Node2D
+
+signal sbili
+var was_sbita := false
+
+
+func _on_body_entered(body: Node) -> void:
+	if was_sbita: return
+	sbili.emit()
+	was_sbita = true
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cxlw1"]
+radius = 30.0
+height = 124.0
+
+[node name="Kegla" type="RigidBody2D"]
+mass = 0.5
+contact_monitor = true
+max_contacts_reported = 5
+script = SubResource("GDScript_v5sui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_cxlw1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.453125, 0.6875)
+texture = ExtResource("1_qi3ii")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
