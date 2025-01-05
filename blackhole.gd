@@ -31,13 +31,7 @@ func _process(delta: float) -> void:
 				body.apply_force(force)
 				
 			else:
-				var timer = Timer.new()
-				add_child(timer)
-				timer.wait_time = 1
-				timer.connect("timeout", timeout)
-				timer.start()
-				body.queue_free()
-				spawn_shockwave(position)
+				Globals.TriggerLose.emit()
 				
 func timeout() -> void:
 	get_tree().reload_current_scene()
