@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c375ampt5jr16"]
+[gd_scene load_steps=5 format=3 uid="uid://bgybh001myicv"]
 
-[ext_resource type="Texture2D" uid="uid://ytpqvv3x5hui" path="res://icon.svg" id="1_qi3ii"]
+[ext_resource type="Texture2D" uid="uid://dqbfk6q8we0bo" path="res://kegla.png" id="1_kpou8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xqni5"]
 
 [sub_resource type="GDScript" id="GDScript_v5sui"]
 script/source = "extends Node2D
@@ -20,7 +22,8 @@ radius = 30.0
 height = 124.0
 
 [node name="Kegla" type="RigidBody2D"]
-mass = 0.5
+mass = 0.99
+physics_material_override = SubResource("PhysicsMaterial_xqni5")
 contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_v5sui")
@@ -29,7 +32,9 @@ script = SubResource("GDScript_v5sui")
 shape = SubResource("CapsuleShape2D_cxlw1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.453125, 0.6875)
-texture = ExtResource("1_qi3ii")
+texture_filter = 1
+position = Vector2(9.875, -10)
+scale = Vector2(2.50781, 2.20802)
+texture = ExtResource("1_kpou8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

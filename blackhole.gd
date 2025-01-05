@@ -1,7 +1,7 @@
 extends Area2D
 
 # Константы
-const MAGNET_FORCE: float = 10000
+const MAGNET_FORCE: float = 15000
 var stop_distance := 50
 var update_radius = false
 var radius = 0
@@ -12,7 +12,7 @@ var rect: ColorRect = null
 func _ready() -> void:
 	rect = get_parent().get_parent().get_parent().get_node("ColorRect")
 	shader = rect.material
-	stop_distance = $CollisionShape2D.shape.radius / 6
+	stop_distance = $CollisionShape2D.shape.radius / 5
 
 func _process(delta: float) -> void:
 	if update_radius:

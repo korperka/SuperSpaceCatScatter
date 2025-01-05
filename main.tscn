@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmr6ddphgkjjt"]
+[gd_scene load_steps=11 format=3 uid="uid://bmr6ddphgkjjt"]
 
 [ext_resource type="Shader" path="res://skybox.gdshader" id="1_dniq4"]
 [ext_resource type="PackedScene" uid="uid://bf06mxdl0gek6" path="res://blackhole.tscn" id="3_k6p87"]
 [ext_resource type="PackedScene" uid="uid://4mb54fpv4ifu" path="res://ball.tscn" id="3_p3cnr"]
 [ext_resource type="Shader" path="res://shockwave.gdshader" id="4_b4oki"]
+[ext_resource type="PackedScene" uid="uid://bgybh001myicv" path="res://Kegla.tscn" id="5_civ4j"]
+[ext_resource type="Shader" path="res://confetti.gdshader" id="6_xemhb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akt0v"]
 shader = ExtResource("1_dniq4")
@@ -31,6 +33,9 @@ shader_parameter/radius = 0.0
 shader_parameter/aberration = 0.425
 shader_parameter/width = 0.0248
 shader_parameter/feather = 0.135
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvwih"]
+shader = ExtResource("6_xemhb")
 
 [node name="Node2D" type="Node2D"]
 
@@ -64,8 +69,17 @@ scale = Vector2(0.66, 0.66)
 position = Vector2(815, 257)
 scale = Vector2(0.55, 0.55)
 
+[node name="Kegla" parent="." instance=ExtResource("5_civ4j")]
+position = Vector2(611, 88)
+mass = 0.001
+
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_kn1sm")
 offset_right = 1245.0
 offset_bottom = 688.0
 color = Color(1, 0.831373, 0.866667, 0)
+
+[node name="Confetti" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wvwih")
+offset_right = 40.0
+offset_bottom = 40.0
