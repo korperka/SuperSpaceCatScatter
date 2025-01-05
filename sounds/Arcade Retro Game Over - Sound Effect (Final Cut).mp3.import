@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs87ambks3pgm"
+path="res://.godot/imported/Arcade Retro Game Over - Sound Effect (Final Cut).mp3-980fc66510cbb3fb1ff91445f8211b55.mp3str"
+
+[deps]
+
+source_file="res://sounds/Arcade Retro Game Over - Sound Effect (Final Cut).mp3"
+dest_files=["res://.godot/imported/Arcade Retro Game Over - Sound Effect (Final Cut).mp3-980fc66510cbb3fb1ff91445f8211b55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

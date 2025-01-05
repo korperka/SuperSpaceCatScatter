@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://sys/Globals.gd"
+GlobalAudioStream="*res://sys/GlobalAudioStream.gd"
 
 [display]
 

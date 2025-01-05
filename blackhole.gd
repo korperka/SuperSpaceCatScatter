@@ -22,5 +22,6 @@ func _process(delta: float) -> void:
 				body.apply_force(force)
 				
 			else:
+				GlobalAudioStream.playBackHole()
 				Globals.ShockWave.emit(global_position)
 				Globals.TriggerLose.emit()
