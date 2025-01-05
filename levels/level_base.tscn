@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3bpcupnexo8b"]
+
+[ext_resource type="Script" path="res://levels/level_base.gd" id="1_8egig"]
+[ext_resource type="Shader" path="res://skybox.gdshader" id="2_p18vp"]
+[ext_resource type="PackedScene" uid="uid://4mb54fpv4ifu" path="res://ball.tscn" id="3_gmmv1"]
+[ext_resource type="PackedScene" uid="uid://c375ampt5jr16" path="res://Kegla.tscn" id="4_xal1n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k12w"]
+shader = ExtResource("2_p18vp")
+shader_parameter/bg_color = Vector4(0, 0, 0, 0)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_8egig")
+
+[node name="bg" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3k12w")
+offset_right = 1160.0
+offset_bottom = 673.0
+
+[node name="planeta" parent="." instance=ExtResource("3_gmmv1")]
+position = Vector2(388, 404)
+
+[node name="keglas" type="Node2D" parent="."]
+
+[node name="Kegla" parent="keglas" instance=ExtResource("4_xal1n")]
+position = Vector2(196, 209)
+
+[node name="holes" type="Node2D" parent="."]
