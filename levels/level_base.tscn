@@ -1,9 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3bpcupnexo8b"]
+[gd_scene load_steps=14 format=3 uid="uid://b3bpcupnexo8b"]
 
 [ext_resource type="Script" path="res://levels/level_base.gd" id="1_8egig"]
 [ext_resource type="Shader" path="res://skybox.gdshader" id="2_p18vp"]
 [ext_resource type="PackedScene" uid="uid://4mb54fpv4ifu" path="res://ball.tscn" id="3_gmmv1"]
-[ext_resource type="PackedScene" uid="uid://c375ampt5jr16" path="res://Kegla.tscn" id="4_xal1n"]
+[ext_resource type="PackedScene" uid="uid://bgybh001myicv" path="res://Kegla.tscn" id="4_xal1n"]
+[ext_resource type="Shader" path="res://shockwave.gdshader" id="5_w3ncm"]
+
+[sub_resource type="Animation" id="Animation_pu3g2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fg_shadow:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_xdkbr"]
 resource_name = "fade_in"
@@ -18,20 +33,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="Animation" id="Animation_pu3g2"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fg_shadow:self_modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_jkv0i"]
@@ -104,6 +105,43 @@ _data = {
 shader = ExtResource("2_p18vp")
 shader_parameter/bg_color = Vector4(0, 0, 0, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wl6ox"]
+shader = ExtResource("5_w3ncm")
+shader_parameter/strength = 0.08
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.0
+shader_parameter/aberration = 0.425
+shader_parameter/width = 0.0248
+shader_parameter/feather = 0.135
+
+[sub_resource type="GDScript" id="GDScript_bg0wr"]
+script/source = "extends ColorRect
+
+var update_radius = false
+var radius = 0
+
+func _ready() -> void:
+	Globals.ShockWave.connect(spawn_shockwave)
+
+func _exit_tree() -> void:
+	Globals.ShockWave.disconnect(spawn_shockwave)
+
+func _process(delta: float) -> void:
+	if update_radius:
+		radius += delta
+		update_shockwave()
+
+func spawn_shockwave(position: Vector2):
+	visible = true
+	var local_position = get_canvas_transform().affine_inverse().basis_xform(global_position)
+	var normalized_position = local_position / size
+	self.material.set_shader_parameter(\"center\", normalized_position)
+	update_radius = true
+
+func update_shockwave() -> void:
+	self.material.set_shader_parameter(\"radius\", radius)
+"
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8egig")
 
@@ -131,6 +169,14 @@ position = Vector2(196, 209)
 
 [node name="holes" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="shockwave" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_wl6ox")
+offset_right = 1245.0
+offset_bottom = 688.0
+color = Color(1, 0.831373, 0.866667, 0)
+script = SubResource("GDScript_bg0wr")
 
 [node name="fg_shadow" type="ColorRect" parent="."]
 anchors_preset = 15

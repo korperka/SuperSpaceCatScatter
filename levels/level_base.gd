@@ -20,7 +20,7 @@ func kegla_sbita() -> void:
 	$anim.play("fade_out_win")
 
 func _on_recive_lose() -> void:
-	if keglas_count > 0: return
+	if keglas_count == 0: return
 	$anim.play("fade_out_reset")
 
 func _on_win() -> void:
