@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgybh001myicv"]
+[gd_scene load_steps=6 format=3 uid="uid://bgybh001myicv"]
 
 [ext_resource type="Texture2D" uid="uid://dqbfk6q8we0bo" path="res://kegla.png" id="1_kpou8"]
+[ext_resource type="AudioStream" uid="uid://vym5xtywel4w" path="res://sounds/COLLISION - Gaming Sound Effects HD FREE NO Copyright.mp3" id="2_sq54p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xqni5"]
 
@@ -12,6 +13,7 @@ var was_sbita := false
 
 
 func _on_body_entered(body: Node) -> void:
+	$collideSound.play()
 	if was_sbita: return
 	sbili.emit()
 	was_sbita = true
@@ -36,5 +38,8 @@ texture_filter = 1
 position = Vector2(9.875, -10)
 scale = Vector2(2.50781, 2.20802)
 texture = ExtResource("1_kpou8")
+
+[node name="collideSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sq54p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

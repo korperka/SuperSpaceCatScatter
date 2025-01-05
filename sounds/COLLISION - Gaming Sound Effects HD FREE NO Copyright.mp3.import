@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vym5xtywel4w"
+path="res://.godot/imported/COLLISION - Gaming Sound Effects HD FREE NO Copyright.mp3-3b47a01cbe882f97d055193b17a2ac69.mp3str"
+
+[deps]
+
+source_file="res://sounds/COLLISION - Gaming Sound Effects HD FREE NO Copyright.mp3"
+dest_files=["res://.godot/imported/COLLISION - Gaming Sound Effects HD FREE NO Copyright.mp3-3b47a01cbe882f97d055193b17a2ac69.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
